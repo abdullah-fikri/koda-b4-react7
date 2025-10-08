@@ -37,7 +37,6 @@ export default function MainPages() {
         <Navbar />
         <div className="px-8 py-6 min-h-[400px]">
           <AddTask showInput={showInput} />
-
           <ul className="space-y-4">
             {data.map((task) => (
               <li key={task.id} className="flex items-center gap-4">
@@ -56,7 +55,7 @@ export default function MainPages() {
                     defaultValue={task.title}
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {
-                        const newTitle = e.target.value.trim();
+                        const newTitle = inputRef.current.value.trim();
                         if (newTitle) renameTask(task.id, newTitle);
                       }
                     }}
